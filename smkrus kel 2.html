@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Profil SMK RUS (Raden Umar Said)</title>
+  <meta name="description" content="Profil singkat SMK RUS Kudus, jurusan, dan informasi sekolah dalam satu halaman." />
+  <style>
+    :root{
+      --primary:#00c2ff;
+      --accent:#ffd166;
+      --dark:#0f172a;
+      --light:#f8fafc;
+      --glass: rgba(255,255,255,0.08);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--light);
+      background:#0b1020;
+      line-height:1.6;
+    }
+    /* ===== HERO dengan BACKGROUND SEKOLAH ===== */
+    .hero{
+      min-height: 100vh;
+      position: relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding: 72px 20px 120px;
+      background: #091022 url("https://iili.io/K2xi5Ft.jpg") center/cover no-repeat fixed;
+      /* NOTE: Ganti path di atas dengan foto SMK RUS milik Anda, mis. images/smk-rus-kudus.jpg */
+    }
+    .hero::after{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(70% 60% at 50% 40%, rgba(0,0,0,.15), rgba(0,0,0,.55)),
+                  linear-gradient(rgba(9,16,34,.35), rgba(9,16,34,.8));
+    }
+    .hero-inner{
+      position:relative; z-index:1;
+      max-width: 1000px;
+    }
+    .badge{ display:inline-block; padding:6px 12px; border:1px solid rgba(255,255,255,.25); border-radius:999px; backdrop-filter: blur(6px); background:var(--glass); font-weight:600; letter-spacing:.5px; }
+    h1{font-size: clamp(28px, 4vw + 10px, 56px); margin:18px 0 10px}
+    .lead{font-size:clamp(15px, 1.1vw + 12px, 20px); opacity:.95; margin:0 auto 28px; max-width: 60ch}
+
+    /* tombol jurusan di hero */
+    .cta-row{ display:flex; gap:12px; flex-wrap:wrap; justify-content:center }
+    .btn{
+      --shadow: 0 8px 30px rgba(0,194,255,.2);
+      border:none; cursor:pointer; padding:12px 16px; border-radius:12px; font-weight:700; letter-spacing:.2px;
+      background: linear-gradient(180deg, var(--primary), #1292c7);
+      color:#041017;
+      transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+      box-shadow: var(--shadow);
+    }
+    .btn:hover{ transform: translateY(-2px); filter: brightness(1.05) }
+    .btn.alt{ background: linear-gradient(180deg, #ffffff, #dfe6ee); color:#0b152b }
+    .btn.ghost{ background:rgba(255,255,255,.06); color:#fff; border:1px solid rgba(255,255,255,.18) }
+
+    /* navbar mengambang */
+    .topnav{
+      position: fixed; top:16px; left:50%; transform: translateX(-50%);
+      z-index: 5; display:flex; gap:8px; padding:8px; backdrop-filter: blur(8px);
+      background: rgba(10,18,38,.55); border:1px solid rgba(255,255,255,.15); border-radius: 999px;
+    }
+    .topnav a{ text-decoration:none; color:#fff; font-weight:700; padding:8px 14px; border-radius:999px; opacity:.9 }
+    .topnav a:hover{ background: rgba(255,255,255,.1) }
+
+    /* ===== SECTION UMUM ===== */
+    section{ padding:72px 20px }
+    .wrap{ max-width:1100px; margin:0 auto }
+
+    .card{
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.25);
+    }
+    .grid{ display:grid; gap:18px }
+    @media (min-width: 800px){
+      .grid-3{ grid-template-columns: repeat(3, 1fr) }
+      .grid-2{ grid-template-columns: repeat(2, 1fr) }
+    }
+
+    h2{ font-size: clamp(22px, 2.4vw + 8px, 36px); margin:0 0 16px }
+    h3{ margin: 0 0 8px }
+    p{ margin: 0 0 12px }
+    ul{ margin:0; padding-left:1.2rem }
+
+    /* kartu jurusan */
+    .major{
+      display:flex; flex-direction:column; gap:10px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+    }
+    .pill{ display:inline-block; padding:6px 10px; border-radius:999px; background: rgba(255,255,255,.12); font-size: 12px; letter-spacing:.4px }
+
+    /* footer */
+    footer{ padding:36px 20px 80px; text-align:center; color:#c9d4e5; opacity:.9 }
+    .footer-links a{ color:#c9d4e5; text-decoration:none; margin:0 8px }
+    .footer-links a:hover{ text-decoration:underline }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR RINGKAS -->
+  <nav class="topnav" aria-label="Navigasi utama">
+    <a href="#profil">Profil</a>
+    <a href="#jurusan">Jurusan</a>
+    <a href="#kontak">Kontak</a>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" role="banner" aria-label="SMK RUS background">
+    <div class="hero-inner">
+      <span class="badge">SMK RUS · Raden Umar Said · Kudus</span>
+      <h1>Sekolah Kejuruan Animasi & Industri Kreatif Terkemuka</h1>
+      <p class="lead">SMK Raden Umar Said (SMK RUS) berfokus pada <strong>animasi</strong>, <strong>desain</strong>, perfilman, dan <strong>teknologi kreatif</strong>. Berjejaring dengan studio, televisi, dan rumah produksi, sekolah ini mencetak lulusan siap kerja dan berdaya saing global.</p>
+     <p> SMK RUS (Raden Umar Said) adalah sekolah menengah kejuruan yang berfokus pada bidang animasi, perfilman, dan industri kreatif digital.
+     SMK RUS dikenal sebagai sekolah animasi pertama di Indonesia.<br>
+    Sekolah ini melahirkan lulusan yang berkompeten di bidang animasi, desain, dan multimedia, <br>
+     SMK RUS juga  bekerja sama dengan industri kreatif, seperti studio animasi, televisi, dan rumah produksi film. <br>
+     Fasilitas belajar yang lengkap mendukung siswa untuk berkreasi dan berinovasi<br>
+     di bidang animasi dan teknologi kreatif. <br>
+     Lulusannya banyak berkontribusi dalam produksi film animasi lokal maupun internasional.<br>
+     SMK RUS memiliki reputasi sebagai salah satu sekolah kejuruan terbaik di Indonesia dalam
+        bidang animasi dan industri kreatif digital.</p>
+      <div class="cta-row" role="group" aria-label="Tombol jurusan cepat">
+        <a class="btn" href="#animasi">🎬 Animasi</a>
+        <a class="btn alt" href="#pplg">💻 PPLG</a>
+        <a class="btn ghost" href="#dkv">🎨 DKV</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- PROFIL SEKOLAH -->
+  <section id="profil" aria-labelledby="judul-profil">
+    <div class="wrap grid grid-2">
+      <div class="card">
+        <h2 id="judul-profil">Profil Singkat SMK RUS</h2>
+        <p><strong>SMK RUS (Raden Umar Said)</strong> adalah sekolah menengah kejuruan di Kudus, Jawa Tengah, yang dikenal sebagai pionir pendidikan <em>animasi</em> dan <em>industri kreatif</em> di Indonesia. Kurikulum dirancang kolaboratif bersama industri sehingga pembelajaran terarah pada produksi karya nyata dan portofolio.</p>
+        <ul>
+          <li>Fokus pada <strong>Animasi</strong>, <strong>DKV</strong>, dan <strong>PPLG</strong>.</li>
+          <li>Proyek berbasis <em>studio production</em> dan magang industri.</li>
+          <li>Fasilitas: laboratorium komputer, studio audio-visual, perpustakaan kreatif.</li>
+          <li>Soft skills: kolaborasi, manajemen proyek, komunikasi profesional.</li>
+        </ul>
+      </div>
+      <div class="grid">
+        <div class="card"><h3>Visi</h3><p>Menjadi sekolah rujukan nasional dalam teknologi kreatif yang berkarakter, adaptif, dan berdaya saing global.</p></div>
+        <div class="card"><h3>Misi</h3>
+          <ul>
+            <li>Menyelenggarakan pembelajaran berbasis proyek dan teknologi mutakhir.</li>
+            <li>Membangun jejaring industri, komunitas, dan alumni.</li>
+            <li>Mengembangkan karakter, etos kerja, dan jiwa kewirausahaan.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JURUSAN -->
+  <section id="jurusan" aria-labelledby="judul-jurusan">
+    <div class="wrap">
+      <h2 id="judul-jurusan">Jurusan di SMK RUS</h2>
+      <div class="grid grid-3">
+        <!-- ANIMASI -->
+        <article class="card major" id="animasi" aria-labelledby="judul-animasi">
+          <span class="pill">🎬 Animasi</span>
+          <h3 id="judul-animasi">Animasi</h3>
+          <p>Mempelajari <em>2D/3D animation</em>, <em>storyboarding</em>, <em>character design</em>, hingga <em>compositing</em>. Siswa menghasilkan film pendek, iklan animasi, dan aset gim.</p>
+          <ul>
+            <li>Software: Blender, Toon Boom/alternatif, After Effects.</li>
+            <li>Pipeline produksi: pra-produksi, produksi, pascaproduksi.</li>
+            <li>Portofolio: demo reel dan proyek klien nyata.</li>
+          </ul>
+          <a class="btn" href="#kontak">Tanyakan Kurikulum</a>
+        </article>
+        <!-- PPLG -->
+        <article class="card major" id="pplg" aria-labelledby="judul-pplg">
+          <span class="pill">💻 PPLG</span>
+          <h3 id="judul-pplg">Pengembangan Perangkat Lunak & Gim (PPLG)</h3>
+          <p>Fokus pada <em>web/app development</em> dan pengembangan <em>game</em>. Mendorong praktik <em>agile</em>, kontrol versi, dan <em>UI/UX</em> modern.</p>
+          <ul>
+            <li>Stack contoh: HTML, CSS, JS, framework modern.</li>
+            <li>Game dasar: konsep gameplay, asset pipeline, prototyping.</li>
+            <li>Proyek akhir: aplikasi atau gim siap demo.</li>
+          </ul>
+          <a class="btn alt" href="#kontak">Minta Silabus</a>
+        </article>
+        <!-- DKV -->
+        <article class="card major" id="dkv" aria-labelledby="judul-dkv">
+          <span class="pill">🎨 DKV</span>
+          <h3 id="judul-dkv">Desain Komunikasi Visual (DKV)</h3>
+          <p>Mengasah desain grafis, identitas merek, <em>motion graphics</em>, fotografi, dan produksi konten visual untuk berbagai kebutuhan industri.</p>
+          <ul>
+            <li>Tools: perangkat raster, vektor, dan layout.</li>
+            <li>Praktik: tipografi, warna, komposisi, dan <em>brand system</em>.</li>
+            <li>Output: poster, logo, kampanye media sosial, motion.</li>
+          </ul>
+          <a class="btn ghost" href="#kontak">Konsultasi Portofolio</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAK / CTA -->
+  <section id="kontak" aria-labelledby="judul-kontak">
+    <div class="wrap grid grid-2">
+      <div class="card">
+        <h2 id="judul-kontak">Hubungi & Informasi</h2>
+        <p>Untuk info pendaftaran, kerja sama industri, atau kunjungan sekolah, silakan hubungi admin SMK RUS.</p>
+        <ul>
+          <li>Email: <a href="mailto:admin@smkrus.sch.id"> contact@smkrus.sch.id</a></li>
+          <li>Telepon:  (0291) 430202</li>
+          <li>Alamat: Kudus, Jawa Tengah</li>
+        </ul>
+        <p style="opacity:.8"><em>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="#profil">Profil</a> • <a href="#jurusan">Jurusan</a> • <a href="#kontak">Kontak</a>
+    </div>
+    <p>© <span id="y"></span> SMK RUS – Raden Umar Said.<br>
+       Kelompok 2 <br>
+       M.Labib<br>
+       Canezares Keandre<br>
+       M.Raynar <br>
+       Arga Pramudya Yusuf<br>
+    </p>
+  </footer>
+
+  <script>
+    // tahun dinamis
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
